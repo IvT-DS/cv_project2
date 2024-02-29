@@ -1,0 +1,12 @@
+numpy==1.26.3
+streamlit
+pandas
+scikit-learn
+torch
+torchvision
+torchaudio
+scikit-image
+ultralytics
+pillow
+altair
+matplotlib
