@@ -10,8 +10,8 @@ from torchvision import transforms as T
 from Models.denoiser_model import DenoiseEncoder
 
 # Sidebar of the page
-st.sidebar.markdown("# Autoencoder page -->>")
 st.sidebar.markdown("## Используй навигацию между страницами выше ⬆️")
+st.sidebar.markdown("# Autoencoder page -->>")
 
 # Main area of the page
 st.markdown("## Очищение документов от шума с помощью автоэнкодера 📖")

@@ -10,6 +10,8 @@ from io import BytesIO
 from requests.models import MissingSchema
 from PIL import Image
 
-st.markdown("## Семантическая сегментация леса на аэрокосмических снимках 🌲")
-st.sidebar.markdown("# Semantic segmentation page -->>")
 st.sidebar.markdown("## Используй навигацию между страницами выше ⬆️")
+st.sidebar.markdown("# Semantic segmentation page -->>")
+
+st.markdown("## Семантическая сегментация леса на аэрокосмических снимках 🌲")
+

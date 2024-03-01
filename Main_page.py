@@ -1,6 +1,11 @@
 import streamlit as st
 from PIL import Image
 
+st.sidebar.markdown("## Используй навигацию между страницами выше ⬆️")
+st.sidebar.markdown("# Главная страница -->")
+
+
+
 image = Image.open("pages/CV.jpg")
 st.image(image, use_column_width=True)
 
@@ -73,5 +78,4 @@ st.markdown(
 """
 )
 
-st.sidebar.markdown("# Главная страница -->")
-st.sidebar.markdown("## Используй навигацию между страницами выше ⬆️")
+

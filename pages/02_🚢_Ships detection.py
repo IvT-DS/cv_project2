@@ -10,8 +10,8 @@ from io import BytesIO
 from PIL import Image
 
 # Sidebar of the page
-st.sidebar.markdown("# YOLOv8 page -->>")
 st.sidebar.markdown("## Используй навигацию между страницами выше ⬆️")
+st.sidebar.markdown("# YOLOv8 page -->>")
 
 # Main area of the page
 st.markdown("### Детекция кораблей на аэрокосмических снимках с помощью YOLOv8 🚢")
