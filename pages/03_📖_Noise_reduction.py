@@ -89,8 +89,11 @@ if uploaded_files:
 
             model = DenoiseEncoder()  # load a model
 
+            # Choose device
+            device = torch.device('cpu')
+
             # Set weights
-            model.load_state_dict(torch.load(weights_path))
+            model.load_state_dict(torch.load(weights_path, map_location=device))
 
             # Set the model to evaluation mode
             model.eval()
