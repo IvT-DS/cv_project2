@@ -9,6 +9,14 @@ from ultralytics import YOLO
 from io import BytesIO
 from PIL import Image
 
+# Specify the paths, where a model and weights are located
+weights_path = "Models/best_yolo_weights.pt"
+
+# Use decorator to cache a model using
+@st.cache_resource
+def load_model():
+    return YOLO(weights_path)
+
 # Sidebar of the page
 st.sidebar.markdown("## Используй навигацию между страницами выше ⬆️")
 st.sidebar.markdown("# YOLOv8 page -->>")
@@ -80,10 +88,6 @@ with col2:
     st.write("Diffusion matrix:")
     st.image(metrics_img_matrix_1, use_column_width=True)
 
-
-# Specify the paths, where a model and weights are located
-weights_path = "Models/best_yolo_weights.pt"
-
 # Separator
 st.write("---")
 
@@ -118,7 +122,8 @@ try:
                     st.image(image, caption="Uploaded image", use_column_width=True)
 
             try:
-                model = YOLO(weights_path)
+                # model = YOLO(weights_path)
+                model = load_model()
 
             except Exception as ex:
                 st.error(
@@ -175,7 +180,8 @@ try:
                         "An error occurred while receiving the image. Make sure that the correct link is entered."
                     )
         try:
-            model = YOLO(weights_path)
+            # model = YOLO(weights_path)
+            model = load_model()
 
         except Exception as ex:
             st.error(f"Unable to load model. Check the specified path: {weights_path}")

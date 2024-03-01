@@ -9,6 +9,24 @@ from PIL import Image
 from torchvision import transforms as T
 from Models.denoiser_model import DenoiseEncoder
 
+# Specify the paths, where a model and weights are located
+model_path = "Models"
+weights_path = "Models/best_denoiser_weights.pt"
+
+# Use decorator to cache a model using
+@st.cache_resource
+def load_model():
+    model = DenoiseEncoder()  # load a model
+    # Choose device
+    device = torch.device('cpu')
+    # Set weights
+    model.load_state_dict(torch.load(weights_path, map_location=device))
+
+    # Set the model to evaluation mode
+    model.eval()
+
+    return model
+
 # Sidebar of the page
 st.sidebar.markdown("## Используй навигацию между страницами выше ⬆️")
 st.sidebar.markdown("# Autoencoder page -->>")
@@ -43,10 +61,6 @@ with col1:
     st.write("LOSS")
     st.image(metrics_img_3, use_column_width=True)
 
-
-# Specify the paths, where a model and weights are located
-model_path = "Models"
-weights_path = "Models/best_denoiser_weights.pt"
 
 # Separator
 st.write("---")
@@ -87,16 +101,18 @@ if uploaded_files:
             transform = T.ToTensor()  # transformator to tensor
             to_pil = T.ToPILImage()  # transformator to image
 
-            model = DenoiseEncoder()  # load a model
+            model = load_model()
 
-            # Choose device
-            device = torch.device('cpu')
+            # model = DenoiseEncoder()  # load a model
 
-            # Set weights
-            model.load_state_dict(torch.load(weights_path, map_location=device))
+            # # Choose device
+            # device = torch.device('cpu')
 
-            # Set the model to evaluation mode
-            model.eval()
+            # # Set weights
+            # model.load_state_dict(torch.load(weights_path, map_location=device))
+
+            # # Set the model to evaluation mode
+            # model.eval()
 
             try:
                 with col2:
