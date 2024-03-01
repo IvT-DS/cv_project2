@@ -2,21 +2,11 @@
 
 # Import of libraries
 import streamlit as st
-
-# import PIL
-# import cv2
-# import numpy as np
-# import requests
 import time
 import torch
-
-
-# from ultralytics import YOLO
-# from io import BytesIO
 from requests.models import MissingSchema
 from PIL import Image
 from torchvision import transforms as T
-
 from Models.denoiser_model import DenoiseEncoder
 
 # Sidebar of the page

@@ -3,16 +3,10 @@
 
 # Import of libraries
 import streamlit as st
-
-# import PIL
-# import cv2
-# import numpy as np
 import requests
 import time
-
 from ultralytics import YOLO
 from io import BytesIO
-from requests.models import MissingSchema
 from PIL import Image
 
 # Sidebar of the page

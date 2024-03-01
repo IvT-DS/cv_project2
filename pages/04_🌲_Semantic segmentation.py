@@ -1,7 +1,6 @@
 # Contents of ~/my_app/pages/page_3.py
 import streamlit as st
 import PIL
-import cv2
 import numpy as np
 import requests
 import time
